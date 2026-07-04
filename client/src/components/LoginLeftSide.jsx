@@ -2,11 +2,11 @@ import React from 'react'
 
 const LoginLeftSide = () => {
   return (
-    <div className='hidden md:flex w-1/2 bg-indigo-950 relative
+    <div className='hidden md:flex w-1/2 bg-[#0A7C6E] relative
     overflow-hidden border-r border-slate-200'>
         
         <div className='absolute -top-30 -left-30 w-72
-        h-72 bg-indigo-500/200 rounded-full blur-3xl'></div>
+        h-72 bg-[#16ead1] rounded-full blur-3xl'></div>
 
         
 
@@ -16,7 +16,7 @@ const LoginLeftSide = () => {
             text-white mb-6 leading-tight tracking-tight'>
                 Employee<br/> Management System</h1>
             
-            <p className='text-slate-400 text-lg 
+            <p className='text-slate-200 text-lg 
             max-w-md leading-relaxed'>Streamline your workforce operations, 
                 track attendance, Manage payroll,
                 and empower your team securely.
