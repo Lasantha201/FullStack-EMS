@@ -15,9 +15,9 @@
     }
 
     /* Button styles */
-    .btn-primary {
-        @apply bg-linear-to-r from-indigo-600 to-indigo-500 text-white px-5 py-2.5 rounded-md text-sm
-            hover:from-indigo-700 hover:to-indigo-600 transition-all duration-200 shadow-md shadow-indigo-500/25
+     .btn-primary {
+        @apply bg-linear-to-r from-[#0A7C6E] to-[#13baa7] text-white px-5 py-2.5 rounded-md text-sm
+            hover:from-[#0A7C6E]/90 hover:to-[#0A7C6E]/80 transition-all duration-200 shadow-md shadow-indigo-500/25
             active:scale-[0.98];
     }
     .btn-secondary {
