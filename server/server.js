@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import multer from "multer";
-import connectDB from "./config/db.j";
+import connectDB from "./config/db.js";
 
 const app = express()
 const PORT = process.env.PORT || 4000;
