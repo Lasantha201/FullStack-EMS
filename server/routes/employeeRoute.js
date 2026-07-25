@@ -1,4 +1,4 @@
-import {router} from "express";
+import {Router} from "express";
 import { createEmployees, deleteEmployees, getEmployees, UpdateEmployees } from "../controllers/employeeController.js";
 import { protect, protectAdmin } from "../middleware/auth.js";
 
