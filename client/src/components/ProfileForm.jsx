@@ -3,13 +3,14 @@ import React, { useState } from 'react'
 
 const ProfileForm = ({initialData, omnSuccess}) => {
 
-    const [loading, setLoadin] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
 
     const handleSubmit = async(e)=>{
 
         e.preventDefault();
+        setLoading(true)
 
     }
 

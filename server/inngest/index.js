@@ -288,7 +288,7 @@ const attendanceReminderCron = inngest.createFunction(
     }
 
 
-
+    await promise.all(emailpromises);
     return {
 
       totalActive: activeEmployees.length,
