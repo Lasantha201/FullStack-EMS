@@ -4,28 +4,29 @@ import { Plus, Search, X } from 'lucide-react';
 import { Listbox } from "@headlessui/react";
 import EmployeeCard from "../components/EmployeeCard";
 import EmployeeForm from "../components/EmployeeForm";
+import api from "../api/axios";
 
 const Employees = () => {
 
   const [employees, setEmployees] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [selectDepartment, setSelectDepartment] = useState("");
   const [editEmployee, setEditEmployee] = useState(null);
   const [showCreateModel, setShowCreateModel] = useState(false);
 
   const fetchEmployees = useCallback(async () => {
-  setLoading(true);
-
-  setEmployees(
-    dummyEmployeeData.filter((emp) =>
-      selectDepartment
-        ? emp.department === selectDepartment
-        : true
-    )
-  );
-
-  setLoading(false);
+    try {
+      const url = selectDepartment ? `/employees?department=${selectDepartment}` :
+      "/employees";
+      const res = await api.get(url)
+      setEmployees(res.data)
+    } catch (error) {
+      console.error("Failed to fetch employees");
+      
+    }finally{
+      setLoading(false)
+    }
 }, [selectDepartment]);
 
   useEffect(() => {

@@ -4,20 +4,37 @@ import Loading from "../components/Loading";
 import { PalmtreeIcon, PlusIcon, ThermometerIcon, UmbrellaIcon } from "lucide-react";
 import LeaveHistory from "../components/leave/LeaveHistory";
 import ApplyLeaveModel from "../components/leave/ApplyLeaveModel";
+import { useAuth } from "../context/AuthContext";
+import api from "../api/axios";
+
 const Leave = () => {
 
-  const [leaves, setLeavs] = useState([]);
+  const {user} = useAuth();
+  const [leaves, setLeaves] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModel, setShowModel] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
-  const isAdmin = false;
+  const isAdmin = user?.role === "ADMIN";
 
-  const fetchLeaves = useCallback(()=>{
-    setLeavs(dummyLeaveData)
-    setTimeout(()=> {
-      setLoading(false);
-    }, 1000)
-  },[])
+  const fetchLeaves = useCallback(async () => {
+  try {
+
+      const res = await api.get("/leave");
+
+      console.log("Leave response:", res.data);
+
+      setLeaves(res.data.data || []);
+
+      } catch (err) {
+
+        console.error(err);
+
+      } finally {
+
+        setLoading(false);
+
+      }
+}, []);
 
   useEffect(()=> {
     fetchLeaves()
